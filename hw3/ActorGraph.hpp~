@@ -1,0 +1,115 @@
+/*
+ * ActorGraph.hpp
+ * Author: <YOUR NAME HERE>
+ * Date:   <DATE HERE>
+ *
+ * This file is meant to exist as a container for starter code that you can use
+ * to read the input file format
+ * defined in movie_casts.tsv. Feel free to modify any/all aspects as you wish.
+ */
+
+#ifndef ACTORGRAPH_HPP
+#define ACTORGRAPH_HPP
+
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <string>
+#include <unordered_map>
+#include <queue>
+using namespace std;
+
+// Maybe include some data structures here
+const int YEAR = 2019;
+struct actor;
+
+struct movie {
+	string movie_name;
+	int year;
+	vector<actor*> actors;
+	int weight;
+	bool visited;
+	actor* from_actor;
+
+	movie(string mv, int yr, bool weighted) {
+		movie_name = mv;
+		year = yr;
+		from_actor = nullptr;
+		visited = false;
+
+		if(weighted) {
+			weight = YEAR - year;
+		} else {
+			weight = 1;
+		}
+	}
+
+	void addActor(actor* act) {
+		actors.push_back(act);
+	}
+};
+
+struct actor {
+	string actor_name;
+	vector<movie*> movies;
+	int cost;
+	bool visited;
+	movie* from_movie;
+
+	actor(string act) {
+		actor_name = act;
+		visited = false;
+		from_movie = nullptr;
+		cost = 0;
+	}
+
+	void addMovie(movie* mv) {
+		movies.push_back(mv);
+	}
+
+	bool operator<(const actor &act) {
+		return cost > act.cost;
+	}
+};
+
+class ActorGraph {
+	protected:
+		// Maybe add class data structure(s) here
+
+	public:
+		unordered_map<string, actor*> actors;
+		unordered_map<string, movie*> movies;
+
+		ActorGraph(void);
+
+		/** You can modify this method definition as you wish
+		 *
+		 * Load the graph from a tab-delimited file of actor->movie
+		 * relationships.
+		 *
+		 * in_filename - input filename
+		 * use_weighted_edges - if true, compute edge weights as
+		 * 1 + (2018 - movie_year), otherwise all edge weights will be 1
+		 *
+		 * return true if file was loaded sucessfully, false otherwise
+		 */
+		bool loadFromFile(const char* in_filename, bool weighted);
+
+		bool findPath(const char* input_path, const char* output_path,
+				bool weighted);
+		~ActorGraph(){
+			unordered_map<string, actor*>::iterator clr_act = actors.begin();
+			unordered_map<string, movie*>::iterator clr_mv = movies.begin();
+			for(;clr_act!= actor.end();clr_act++){
+				delete clr_act->second;
+			}
+			for(;clr_mv!= movie.end();clr_mv++){
+				delete clr_mv->second;
+			}
+
+		}
+
+		// Maybe add some more methods here
+
+};
+#endif // ACTORGRAPH_HPP

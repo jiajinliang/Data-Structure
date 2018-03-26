@@ -1,0 +1,293 @@
+/*
+ * ActorGraph.cpp
+ * Author: <YOUR NAME HERE>
+ * Date:   <DATE HERE>
+ *
+ * This file is meant to exist as a container for starter code that you can use
+ * to read the input file format defined in movie_casts.tsv. Feel free to modify
+ * any/all aspects as you wish.
+ */
+
+#include <fstream>
+#include <queue>
+#include <iostream>
+#include <iterator>
+#include <sstream>
+#include <string>
+#include <cstring>
+#include <vector>
+#include <algorithm>
+#include "ActorGraph.hpp"
+using namespace std;
+
+static const char COMPUTE[] = "Computing path for (";
+static const char IN[] = "--[";
+static const char TO[] = ") -> (";
+static const char WITH[] = "]-->(";
+static const char FAILED_LOCATE[] = "Failed to locate '";
+static const char OUTPUT_HEADER[] = "(actor)--[movie#@year]-->(actor)--...";
+
+struct order {
+	bool operator()(actor* act1, actor* act2) {
+		return *act1 < *act2;
+	}
+};
+
+ActorGraph::ActorGraph(void) {}
+
+/*
+	 void print_queue(priority_queue<actor*, vector<actor*>, order> q) {
+	 string name;
+	 int cost;
+	 while(!q.empty()) {
+
+	 name = (q.top())->actor_name;
+	 cost = (q.top())->cost;
+
+	 q.pop();
+
+	 cout << "actor: " << name << "   cost: " << cost << endl;
+	 }
+	 }
+	 */
+
+void output(string path, string content) {
+	ofstream outfile(path, ios::app);
+	outfile << content << endl;
+	outfile.close();
+}
+
+bool ActorGraph::loadFromFile(const char* in_filename, bool weighted) {
+	// Initialize the file stream
+	ifstream infile(in_filename);
+
+	bool have_header = false;
+
+	// keep reading lines until the end of file is reached
+	while (infile) {
+		string s;
+
+		// get the next line
+		if (!getline( infile, s )) break;
+
+		if (!have_header) {
+			// skip the header
+			have_header = true;
+			continue;
+		}
+
+		istringstream ss( s );
+		vector <string> record;
+
+		while (ss) {
+			string next;
+
+			// get the next string before hitting a tab character
+			// and put it in 'next'
+			if (!getline( ss, next, '\t' )) break;
+
+			record.push_back( next );
+		}
+
+		if (record.size() != 3) {
+			// we should have exactly 3 columns
+			continue;
+		}
+
+		string actor_name(record[0]);
+		string movie_title(record[1]);
+		int movie_year = stoi(record[2]);
+		string movie_name = movie_title + "#@" + record[2];
+
+		actor* this_actor;		// actor being inserted
+		movie* this_movie;		// movie being inserted
+
+		// try find the actor in the actor list
+		unordered_map<string, actor*>::iterator actor_it;
+		actor_it = actors.find(actor_name);
+		// if actor not found, create a new actor node
+		if(actor_it == actors.end()) {
+			this_actor = new actor(actor_name);
+			actors.insert(make_pair(actor_name, this_actor));
+
+			// if acotr found, go to this actor
+		} else {
+			this_actor = actor_it->second;
+		}
+
+		// try find the movie in the movie list
+		unordered_map<string, movie*>::iterator movie_it;
+		movie_it = movies.find(movie_name);
+		// if movie not found, create a new movie node
+		if(movie_it == movies.end()) {
+			this_movie = new movie(movie_name, movie_year,
+					weighted);
+			movies.insert(make_pair(movie_name, this_movie));
+
+			// if movie found, go to this movie
+		} else {
+			this_movie = movie_it->second;
+		}
+
+		// add the movie to the actor node
+		this_actor->addMovie(this_movie);
+
+		// add the actor to the movie node
+		this_movie->addActor(this_actor);
+	}
+
+	if (!infile.eof()) {
+		cerr << "Failed to read " << in_filename << "!\n";
+		return false;
+	}
+	infile.close();
+
+	return true;
+}
+
+//`findPath
+bool ActorGraph::findPath(const char* input_path, const char* output_path,
+		bool weighted) {
+	unordered_map<string, actor*>::iterator first_actor;	// first actor
+	vector<actor*>::iterator actor_it;		// actor iterator
+	vector<movie*>::iterator movie_it;		// movie iterator
+	actor* this_actor;				// current actor
+	string result;					// return value
+	string line;					// a line in the file
+	ifstream infile(input_path);			// infile stream
+
+	output(output_path, OUTPUT_HEADER);
+
+	// skip the header
+	getline(infile, line);
+
+	// read in a line and find the path between two actors each time
+	while(infile) {
+		if(!getline(infile, line)) {
+			break;
+		}
+		istringstream ss(line);
+		vector <string> record;
+
+		// get the next string before hitting a tab character
+		// and put it in 'next'
+		while (ss) {
+			string next;
+			if (!getline( ss, next, '\t' )) {
+				break;
+			}
+
+			record.push_back(next);
+		}
+
+		// we should have exactly 3 columns
+		if (record.size() != 2) {
+			continue;
+		}
+
+		string actor1(record[0]);
+		string actor2(record[1]);
+
+
+		// stdout
+		cout << COMPUTE << actor1 << TO << actor2 << ")" << endl;
+
+		// return if actor1 and actor2 are the same person
+		result = "";
+		if(actor1 == actor2) {
+			output(output_path, result);
+			continue;
+		}
+
+		first_actor = actors.find(actor1);
+		// if actor1 is not in the graph
+		if(first_actor == actors.end()) {
+			cerr << FAILED_LOCATE + actor1 + "'";
+			return false;
+		}
+
+		// add (0, actor1_node) to the queue
+		priority_queue<actor*, vector<actor*>, order> queue;
+		queue.push(first_actor->second);
+		while(!queue.empty()) {
+			// pop queue
+			this_actor = queue.top();
+			this_actor->visited = true;
+			queue.pop();
+
+			/*
+				 if(!queue.empty()) {
+				 print_queue(queue);
+				 cout <<
+				 "*********************************************************************************************************************\n";
+				 }
+				 */
+
+
+			if(this_actor->actor_name == actor2) {
+				while(this_actor->actor_name != actor1) {
+					result = IN +
+						this_actor->from_movie->movie_name
+						+ WITH +
+						this_actor->actor_name
+						+ ")" + result;
+					this_actor = this_actor
+						->from_movie->from_actor;
+				}
+				result = "(" + actor1 + ")" + result;
+				output(output_path, result);
+				break;
+			}
+
+			// add the actors ralated to this_actor to the queue
+			//
+			for(movie* mv : this_actor->movies) {
+				if(mv->visited) {
+					continue;
+				}
+				mv->visited = true;
+				mv->from_actor = this_actor;
+
+				for(actor* act : mv->actors) {
+					if(act->visited) {
+						continue;
+					}
+					if(!weighted){
+						act->visited = true;
+						act->from_movie = mv;
+						act->cost += this_actor->cost
+							+ mv->weight;
+						queue.push(act);
+					}
+					else{
+						if(act->cost > (this_actor->cost + mv->weight) || act->cost == 0){
+							act->from_movie = mv;
+							act ->cost +=this_actor->cost +mv->weight;
+							queue.push(act);
+						}
+					}
+				}
+			}
+
+		}
+
+		unordered_map<string, actor*>::iterator clr_act;
+		unordered_map<string, movie*>::iterator clr_mv;
+
+		clr_act = actors.begin();
+		for( ; clr_act != actors.end(); clr_act++) {
+			clr_act->second->visited = false;
+			clr_act->second->cost = 0;
+			clr_act->second->from_movie = nullptr;
+
+		}
+
+		clr_mv = movies.begin();
+		for( ; clr_mv != movies.end(); clr_mv++) {
+			clr_mv->second->visited = false;
+			clr_mv->second->from_actor = nullptr;
+		}
+	}
+
+	return true;
+}

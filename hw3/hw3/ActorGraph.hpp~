@@ -1,0 +1,134 @@
+/*
+ * ActorGraph.hpp
+ * Author: <YOUR NAME HERE>
+ * Date:   <DATE HERE>
+ *
+ * This file is meant to exist as a container for starter code that you can use
+ * to read the input file format
+ * defined in movie_casts.tsv. Feel free to modify any/all aspects as you wish.
+ */
+
+#ifndef ACTORGRAPH_HPP
+#define ACTORGRAPH_HPP
+
+#include <vector>
+#include <string>
+#include <unordered_map>
+using namespace std;
+
+// Maybe include some data structures here
+const int YEAR = 2019;
+struct movie;
+struct Pair {
+	string actor_name;
+	int common;
+
+	Pair(string nm, int fd) {
+		actor_name = nm;
+		common = fd;
+	}
+
+	bool operator<(const Pair &pr) {
+		return common > pr.common;
+	}
+};
+
+struct actor {
+	string actor_name;
+	vector<movie*> movies;
+	int cost;
+	bool visited;
+	bool going;
+	movie* from_movie;
+	unsigned int fdnum;
+
+	actor(string act) {
+		actor_name = act;
+		visited = false;
+		going = true;
+		from_movie = nullptr;
+		cost = 0;
+		fdnum = 0;
+	}
+
+	void addMovie(movie* mv) {
+		movies.push_back(mv);
+	}
+
+	bool operator<(const actor &act) {
+		return cost > act.cost;
+	}
+};
+
+struct movie {
+	string movie_name;
+	unordered_map<string, actor*> actors;
+	int weight;
+	int cost;
+	bool visited;
+	actor* from_actor;
+
+	movie(string mv, int yr, bool weighted) {
+		movie_name = mv;
+		from_actor = nullptr;
+		visited = false;
+
+		if(weighted) {
+			weight = YEAR - yr;
+		} else {
+			weight = 1;
+		}
+		cost = 0;
+	}
+
+	void addActor(actor* act) {
+		actors[act->actor_name]=act;
+	}
+};
+
+class ActorGraph {
+	protected:
+		// Maybe add class data structure(s) here
+
+	public:
+		unordered_map<string, actor*> actors;
+		unordered_map<string, movie*> movies;
+
+		ActorGraph(void);
+
+		~ActorGraph(void);
+
+		/** You can modify this method definition as you wish
+		 *
+		 * Load the graph from a tab-delimited file of actor->movie
+		 * relationships.
+		 *
+		 * in_filename - input filename
+		 * use_weighted_edges - if true, compute edge weights as
+		 * 1 + (2018 - movie_year), otherwise all edge weights will be 1
+		 *
+		 * return true if file was loaded sucessfully, false otherwise
+		 */
+		bool loadFromFile(const char* in_filename, bool weighted);
+
+		bool findPath(const char* input_path, const char* output_path,
+				bool weighted);
+
+		bool uFindPath(string actor1, string actor2,
+				const char* output_path);
+
+		bool wFindPath(string actor1, string actor2,
+				const char* output_path);
+
+		int edgeCount();
+
+		actor* firstActor(string name);
+
+		string traceBack(actor* this_actor, string actor1);
+
+		void reset();
+
+		// Maybe add some more methods here
+
+};
+#endif // ACTORGRAPH_HPP
