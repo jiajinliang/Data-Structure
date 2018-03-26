@@ -1,0 +1,10 @@
+#include <iostream>
+#include <string.h>
+#include <sstream>
+#include "DocumentGenerator.hpp"
+
+using namespace std;
+
+int main() {
+	DocumentGenerator a("myTest/");
+}

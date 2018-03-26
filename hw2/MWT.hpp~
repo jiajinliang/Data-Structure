@@ -1,0 +1,245 @@
+#ifndef MWT_HPP
+#define MWT_HPP
+
+#include <vector>
+#include <string>
+#include <iterator>
+#include <unordered_map>
+#include <algorithm>
+#include <stdlib.h>
+#include <dirent.h>
+#include <ctime>
+using namespace std;
+
+const int MAX_SIZE = 10;							// max size of the result in search
+const int PRECISION = 10000.0;			// precision of the probability
+
+struct Pair {
+	string word;		// stores the word
+	int frequency;	// the frequency of the word
+
+	// constructor
+	Pair(const string w, const int f) {
+		word = w;
+		frequency = f;
+	}
+};
+
+bool order(const Pair x, const Pair y) {
+	// element with greater frequency comes first
+	if(x.frequency != y.frequency) {
+		return x.frequency > y.frequency;
+	}
+
+	// if the frequencies are the same, sort by alphabetical order
+	return x.word.compare(y.word) < 0;
+}
+
+struct MWTNode {
+	char character;														// character at that node
+	int frequency;														// frequency of the word
+	unordered_map<char, MWTNode*> children;		// children of the node
+	unordered_map<string, int> nextWords;
+	double wordCount;
+
+	// constructor
+	MWTNode(const char c) {
+		character = c;
+		frequency = 0;
+	}
+};
+
+class MWT {
+	private:
+	MWTNode* root;	// the root of the tree
+
+	public:
+	//`constructor
+	MWT() {
+		root = new MWTNode('\0');
+	}
+	
+	//`insert1 - for part one of this PA
+	void insert(const vector<string> words) {
+		MWTNode* current;																// current working node
+		MWTNode* newNode;																// new node in the tree
+		string word;																		// each word in the words
+		unsigned int counter1;													// loop counter
+		unsigned int counter2;													// loop counter
+		unordered_map<char, MWTNode*>::iterator child;	// children iterator
+
+		// loop through the words vector to insert the words
+		for(counter1 = 0; counter1 < words.size(); counter1++) {
+			current = root;
+			word = words[counter1];
+
+			// loop through each character in the word
+			for(counter2 = 0; counter2 < word.length(); counter2++) {
+				// if not found, create a new node. Otherwise, go to the next node
+				child = current->children.find(word[counter2]);
+				if(child == current->children.end()) {
+					newNode = new MWTNode(word[counter2]);
+					current->children.insert(make_pair(word[counter2], newNode));
+					current = newNode;
+				} else {
+					current = child->second;
+				}
+			}
+
+			// increase the frequency of that word
+			current->frequency++;
+		}
+	}
+
+	//`search
+	vector<string> search(const string prefix) {
+		vector<string> result;													// up to ten most used words
+		vector<Pair> collection;												// words and frequencies
+		MWTNode* current;																// current working node
+		unsigned int counter;														// loop counter
+		unordered_map<char, MWTNode*>:: iterator child;	// children iterator
+
+
+		// loop to the node of the last character in prefix
+		current = root;
+		for(counter = 0; counter < prefix.length(); counter++) {
+			// if not fount, return empty result. Otherwise, go to next node
+			child = current->children.find(prefix[counter]);
+			if(child == current -> children.end()) {
+				return result;
+			} else {
+				current = child->second;
+			}
+		}
+
+		// collect the words below
+		collection = searchHelper(current, prefix);
+
+		// sort the collection
+		sort(collection.begin(), collection.end(), order);
+
+		// transfer words in collection to result
+		for(counter = 0; counter < MAX_SIZE && counter < collection.size();
+				counter++) {
+			result.push_back(collection[counter].word);
+		}
+
+		return result;
+	}
+
+	//`search helper
+	vector<Pair> searchHelper(MWTNode* current, string prefix) {
+		vector<Pair> collection;												// possible words
+		vector<Pair> subCollection;											// words in children
+		unsigned int counter;														// loop counter
+		unordered_map<char, MWTNode*>:: iterator child;	// children iterator
+
+		// if frequency is not 0; add the word to the collection
+		if(current->frequency) {
+			Pair aWord(prefix, current->frequency);
+			collection.push_back(aWord);
+		}
+
+		// find the possible words in children recursively
+		for(child = current->children.begin(); child != current->children.end();
+				child++) {
+			subCollection = searchHelper(child->second, prefix + child->first);
+			
+			// update collection
+			for(counter = 0; counter < subCollection.size(); counter++) {
+				collection.push_back(subCollection[counter]);
+			}
+		}
+
+		return collection;
+	}
+
+	//`destuctor
+	~MWT() {
+		destructorHelper(root);
+		delete root;
+	}
+
+	//`dextructor helper
+	void destructorHelper(MWTNode* current) {
+		unordered_map<char, MWTNode*>:: iterator child;	// children iterator
+
+		// delete each node recursively
+		for(child = current->children.begin(); child != current->children.end();
+				child++) {
+			destructorHelper(child->second);
+			delete child->second;
+		}
+	}
+
+	//`insert2 - for part two of this PA
+	void insert(const string first, const string second) {
+		MWTNode* current;																// current working node
+		MWTNode* newNode;																// new node in the tree
+		unsigned int counter1;													// loop counter
+		unordered_map<char, MWTNode*>::iterator child;	// children iterator
+		unordered_map<string, int>::iterator word;			// word in nextWords
+
+		// loop through each character in the word to insert
+		current = root;
+		for(counter1 = 0; counter1 < first.length(); counter1++) {
+			// if not found, create a new node. Otherwise, go to the next node
+			child = current->children.find(first[counter1]);
+			if(child == current->children.end()) {
+				newNode = new MWTNode(first[counter1]);
+				current->children.insert(make_pair(first[counter1], newNode));
+				current = newNode;
+			} else {
+				current = child->second;
+			}
+		}
+		
+		// increase the frequency of the first word
+		current->frequency++;
+
+		if(second == "") {
+			return;
+		}
+		
+		// increase the wordCount
+		current->wordCount++;
+		// if not found, insert the word. Otherwise, increase the count
+		word = current->nextWords.find(second);
+		if(word == current->nextWords.end()) {
+			current->nextWords.insert(make_pair(second,1));
+		}	else {
+			word->second++;
+		}
+	}
+
+	string nextWord(const string prevWord) {
+		MWTNode* current;				// current working node
+		unordered_map<char, MWTNode*>::iterator child;	// children iterator
+		unordered_map<string, int>::iterator word;			// word in nextWords
+		unsigned int counter;				// loop counter
+		double prob;				// probability of a next word
+		double random;			// random number between 0 and 1
+
+		// loop to the node of the last character in prefix
+		current = root;
+		for(counter = 0; counter < prevWord.length(); counter++) {
+			child = current->children.find(prevWord[counter]);
+			current = child->second;
+		}
+	
+		random = rand() % PRECISION / (double)PRECISION;
+		for(word = current->nextWords.begin(); word != current->nextWords.end();
+					word++) {
+			prob = word->second / current->wordCount;
+			random -= prob;
+			if(random <= 0) {
+				return word->first;
+			}
+		}
+		
+
+		
+		return "";
+	}
+};
+#endif
