@@ -1,0 +1,735 @@
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test_KDT.cpp:1:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test_KDT.cpp:1:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test_KDT.cpp:1:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test_KDT.cpp:1:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test_KDT.cpp:110:1:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from main2.cpp:1:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from main2.cpp:1:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from main2.cpp:1:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+main2.cpp: In function 'int main(int, char**)':
+main2.cpp:40:15: warning: unused variable 'size' [-Wunused-variable]
+  unsigned int size = 0;
+               ^
+main2.cpp:41:15: warning: unused variable 'height' [-Wunused-variable]
+  unsigned int height = 0;
+               ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:40:5:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from BST.hpp:4:0,
+                 from KDT.hpp:9,
+                 from test.cpp:3:
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator==(const BSTIterator<Data>&) const':
+BSTIterator.hpp:45:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BSTIterator.hpp: In member function 'bool BSTIterator<Data>::operator!=(const BSTIterator<Data>&) const':
+BSTIterator.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In member function 'virtual bool BST<Data>::insert(const Data&)':
+BST.hpp:50:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::size() const':
+BST.hpp:69:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'unsigned int BST<Data>::height() const':
+BST.hpp:75:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+BST.hpp: In member function 'bool BST<Data>::empty() const':
+BST.hpp:82:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
+In file included from test.cpp:3:0:
+KDT.hpp: In static member function 'static double Point::squareDistance(const Point&, const Point&)':
+KDT.hpp:47:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual unsigned int KDT::build(std::vector<Point>&)':
+KDT.hpp:80:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'virtual BST<Point>::iterator KDT::findNearestNeighbor(const Point&) const':
+KDT.hpp:93:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+KDT.hpp: In member function 'BSTNode<Point>* KDT::buildSubset(std::vector<Point>, unsigned int, unsigned int, unsigned int, unsigned int)':
+KDT.hpp:132:5: warning: no return statement in function returning non-void [-Wreturn-type]
+     }
+     ^
+In file included from KDT.hpp:9:0,
+                 from test.cpp:3:
+BST.hpp: In instantiation of 'BST<Data>::iterator BST<Data>::find(const Data&) const [with Data = Point; BST<Data>::iterator = BSTIterator<Point>]':
+test.cpp:65:13:   required from here
+BST.hpp:62:3: warning: no return statement in function returning non-void [-Wreturn-type]
+   }
+   ^
